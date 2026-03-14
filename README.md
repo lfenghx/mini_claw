@@ -111,6 +111,7 @@ Feature 4: The Dify `plugin_daemon` container does not include Node.js by defaul
 
 ### Author & Contact
 
+- Bilibili tutorial: https://www.bilibili.com/video/BV1sjwFzbENN
 - GitHub: lfenghx (repo: <https://github.com/lfenghx/mini_claw>)
 - Bilibili: 元视界_O凌枫o
 - Email: 550916599@qq.com
