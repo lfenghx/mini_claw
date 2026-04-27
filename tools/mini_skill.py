@@ -265,7 +265,8 @@ class SkillAgentTool(Tool):
         identity_key = _get_persona_storage_key(self.session, "IDENTITY.md")
         user_id = str(getattr(self.runtime, "user_id", None) or "").strip() or "global_user"
         users_index_key = _get_persona_storage_key(self.session, "users_index")
-        user_key = _get_user_persona_storage_key_for(self.session, user_id, "USER.md")
+        # user_key = _get_user_persona_storage_key_for(self.session, user_id, "USER.md")
+        user_key = 'skill:persona:global_user:USER.md'
         user_onboarding_key = _get_user_persona_storage_key_for(self.session, user_id, "user_onboarding")
         soul_key = _get_persona_storage_key(self.session, "SOUL.md")
         memory_key = _get_user_memory_storage_key_for(self.session, user_id, "MEMORY.md")
@@ -274,7 +275,8 @@ class SkillAgentTool(Tool):
         onboarding_completed = bool(onboarding_state.get("completed")) and bool(identity_md)
         user_md = _storage_get_text(storage, user_key).strip()
 
-        reset_words = ["重置身份", "重置设定", "重置角色", "重新初始化", "重新认识", "重做初始化", "换个设定", "改角色", "改设定"]
+        # reset_words = ["重置身份", "重置设定", "重置角色", "重新初始化", "重新认识", "重做初始化", "换个设定", "改角色", "改设定"]
+        reset_words = ["重置角色"]
         if any(w in str(user_input or "") for w in reset_words):
             _reset_role(
                 storage=storage,
@@ -287,7 +289,7 @@ class SkillAgentTool(Tool):
                 users_index_key=users_index_key,
                 keep_daily_days=30,
             )
-            yield self.create_text_message("🦞角色重置成功：已清除身份设定与记忆信息，你可通过发送消息再次建立你的专属AI助手。\n")
+            yield self.create_text_message("角色重置成功：已清除身份设定与记忆信息，你可通过发送消息再次建立你的专属AI助手。\n")
             return
 
         if onboarding_completed and not user_md:

@@ -1,4 +1,4 @@
-version: 1.2.0
+version: 1.2.1
 type: plugin
 author: jingor9394
 name: mini_skill
@@ -38,7 +38,7 @@ plugins:
   tools:
     - provider/mini_skill.yaml
 meta:
-  version: 1.2.0
+  version: 1.2.1
   arch:
     - amd64
     - arm64
