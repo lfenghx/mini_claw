@@ -42,7 +42,7 @@ jobs:
         id: package
         run: |
           cd $GITHUB_WORKSPACE
-          PACKAGE_NAME="${{ steps.get_basic_info.outputs.plugin_name }}.difypkg"
+          PACKAGE_NAME="${{ steps.get_basic_info.outputs.plugin_name }}-${{ steps.get_basic_info.outputs.version }}.difypkg"
           $RUNNER_TEMP/bin/dify-plugin-linux-amd64 plugin package . -o "$PACKAGE_NAME"
 
           echo "Package result:"
